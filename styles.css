@@ -552,3 +552,27 @@ body { overflow-x:hidden; }
 .faq .accordion summary span { color: #38B6FF; }
 /* Faster image rendering: defer visual assets outside the initial view. */
 .vertical-card img, .why-image img, .coverage-map-wrap img { content-visibility: auto; }
+/* Mobile Why Us: image first, then the message below. */
+@media (max-width: 760px) {
+  .why-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: "image" "copy";
+    gap: 26px;
+    justify-items: center;
+  }
+  .why-image {
+    grid-area: image;
+    justify-self: center;
+    width: min(78vw, 280px);
+    height: min(78vw, 280px);
+    max-width: 280px;
+  }
+  .why-copy {
+    grid-area: copy;
+    width: 100%;
+    justify-self: center;
+    text-align: center;
+  }
+  .why-copy h2::after { margin-left: auto; margin-right: auto; }
+  .why-copy p { margin-left: auto; margin-right: auto; }
+}
